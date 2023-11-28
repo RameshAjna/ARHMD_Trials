@@ -4,3 +4,7 @@ Activated Vectors :
 Rotation Vector as RV_i, RV_j, RV_k, RV_real
 Game Rotation Vector as AR_RV_i, AR_RV_j, AR_RV_k, AR_RV_real
 Audio with Buttons implemented.
+
+
+#To Reset the GAME RV during operation
+added : STM system reset once OK button is interrupted
