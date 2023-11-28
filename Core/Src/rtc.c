@@ -46,6 +46,7 @@ time_t rtc_read(void)
     timeinfo.tm_hour = timeStruct.Hours;
     timeinfo.tm_min  = timeStruct.Minutes;
     timeinfo.tm_sec  = timeStruct.Seconds;
+    timeinfo.tm_ssec = timeStruct.SubSeconds;
 
     // Convert to timestamp
     time_t cur_time = mktime(&timeinfo);

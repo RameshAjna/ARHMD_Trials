@@ -102,6 +102,8 @@ SemaphoreHandle_t sleepSem;
 
 extern uint16_t low_th;
 extern uint16_t high_th;
+uint32_t mainTimer = 0;
+uint32_t delay_1 = 0;
 
 const osThreadAttr_t CLI_manager_attributes = { .name = CLI_MANAGER_TASK_NAME,
 		.stack_size = CLI_MANAGER_STK_SIZE, .priority =
@@ -879,6 +881,12 @@ void WdtManager(void *argument) {
  */
 /* USER CODE END Header_StartTask2 */
 void SensorManager(void *argument) {
+
+	if(rtc_read() != rtc_read())
+	{
+		mainTimer = rtc_read();
+	}
+
     wdt_register(SENSOR_TASK_ID);
 
 	sh2_SensorEvent_t sensorEvent;

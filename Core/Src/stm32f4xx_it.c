@@ -215,7 +215,12 @@ void EXTI4_IRQHandler(void) {
 	if ((HAL_GetTick() - prevTime) >= 200) {
 		printf("Ok button pressed\r\n");
 		prevTime = HAL_GetTick();
+
 		HAL_GPIO_EXTI_IRQHandler(OK_BUTTON_PIN);
+		
+		// Added to reset Game RV values from BNO for ARHMD trials
+		NVIC_SystemReset();
+		 
 	} else {
 		if (__HAL_GPIO_EXTI_GET_IT(OK_BUTTON_PIN) != RESET) {
 			__HAL_GPIO_EXTI_CLEAR_IT(OK_BUTTON_PIN);
